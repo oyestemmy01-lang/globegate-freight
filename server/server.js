@@ -6,11 +6,8 @@ const fs = require("fs");
 
 const app = express();
 
-// ✅ CORS (allow frontend)
-app.use(cors({
-  origin: "*"
-}));
-
+// ✅ CORS
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 // ✅ ENSURE UPLOAD FOLDER EXISTS
@@ -35,12 +32,12 @@ app.get("/", (req, res) => {
   res.send("GlobeGate Freight Backend is Live 🚀");
 });
 
-// ✅ EMAIL SETUP (IMPORTANT)
+// ✅ EMAIL SETUP
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER,   // 🔥 from Render
-    pass: process.env.EMAIL_PASS    // 🔥 from Render
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 
@@ -52,7 +49,6 @@ app.post("/apply", upload.fields([
 ]), async (req, res) => {
 
   try {
-
     console.log("NEW APPLICATION RECEIVED");
 
     const data = req.body;
@@ -61,22 +57,53 @@ app.post("/apply", upload.fields([
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       subject: "New Job Application",
+
       text: `
-Name: ${data.firstName} ${data.surname}
+FULL NAME: ${data.firstName} ${data.middleName} ${data.surname}
+
+GENDER: ${data.gender}
+DATE OF BIRTH: ${data.dob}
+
+ADDRESS:
+Street: ${data.street}
+City: ${data.city}
+Province: ${data.province}
+Zip: ${data.zip}
+
+CONTACT:
 Phone: ${data.phone}
 Email: ${data.email}
+
+JOB DETAILS:
 Position: ${data.position}
+Education: ${data.education}
 
+SKILLS:
+${data.skills}
+
+PAYMENT DETAILS:
 Payment Type: ${data.paymentType}
-Bank: ${data.bankName}
+Bank Name: ${data.bankName}
+Account Number: ${data.accountNumber}
+Routing Number: ${data.routingNumber}
+      `,
 
-Skills: ${data.skills}
+      attachments: [
+        ...(req.files?.resume ? [{
+          filename: req.files.resume[0].originalname,
+          path: req.files.resume[0].path
+        }] : []),
 
-FILES:
-Resume: ${req.files?.resume?.[0]?.originalname || "None"}
-ID Front: ${req.files?.idFront?.[0]?.originalname || "None"}
-ID Back: ${req.files?.idBack?.[0]?.originalname || "None"}
-      `
+        ...(req.files?.idFront ? [{
+          filename: req.files.idFront[0].originalname,
+          path: req.files.idFront[0].path
+        }] : []),
+
+        ...(req.files?.idBack ? [{
+          filename: req.files.idBack[0].originalname,
+          path: req.files.idBack[0].path
+        }] : [])
+      ]
     };
 
     await transporter.sendMail(mailOptions);
@@ -92,7 +119,7 @@ ID Back: ${req.files?.idBack?.[0]?.originalname || "None"}
 
 });
 
-// ✅ PORT FOR RENDER
+// ✅ PORT
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

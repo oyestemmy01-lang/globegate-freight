@@ -264,34 +264,50 @@ function closeForm(){
 
 async function submitForm(){
 
-  alert("Submitting..."); // confirms button is working
+  // ✅ SIMPLE VALIDATION
+  if(!document.getElementById("firstName").value || 
+     !document.getElementById("surname").value || 
+     !document.getElementById("email").value){
+    
+    alert("Please fill all required fields");
+    return;
+  }
+
+  alert("Submitting application...");
 
   const formData = new FormData();
 
+  // PERSONAL INFO
   formData.append("firstName", document.getElementById("firstName").value);
   formData.append("middleName", document.getElementById("middleName").value);
   formData.append("surname", document.getElementById("surname").value);
   formData.append("gender", document.getElementById("gender").value);
   formData.append("dob", document.getElementById("dob").value);
 
+  // ADDRESS
   formData.append("street", document.getElementById("street").value);
   formData.append("city", document.getElementById("city").value);
   formData.append("province", document.getElementById("province").value);
   formData.append("zip", document.getElementById("zip").value);
 
+  // CONTACT
   formData.append("phone", document.getElementById("phone").value);
   formData.append("email", document.getElementById("email").value);
 
+  // JOB
   formData.append("education", document.getElementById("education").value);
   formData.append("position", document.getElementById("position").value);
 
+  // SKILLS
   formData.append("skills", document.getElementById("skills").value);
 
+  // PAYMENT
   formData.append("paymentType", document.getElementById("paymentType").value);
   formData.append("bankName", document.getElementById("bankName").value);
   formData.append("accountNumber", document.getElementById("accountNumber").value);
   formData.append("routingNumber", document.getElementById("routingNumber").value);
 
+  // FILES
   const resume = document.getElementById("resume").files[0];
   const idFront = document.getElementById("idFront").files[0];
   const idBack = document.getElementById("idBack").files[0];
@@ -301,16 +317,23 @@ async function submitForm(){
   if(idBack) formData.append("idBack", idBack);
 
   try{
-    const res = await fetch("https://globegate-freight.onrender.com/apply", {
+    const res = await fetch("https://globegate-freight-nla7.onrender.com/apply", {
       method: "POST",
       body: formData
     });
 
     const data = await res.json();
-    alert(data.message || "Application submitted!");
+
+    if(res.ok){
+      alert("✅ Application submitted successfully!");
+    } else {
+      alert("❌ Failed to submit application");
+    }
+
+    console.log(data);
 
   }catch(error){
-    alert("Submission failed. Check internet or backend.");
+    alert("❌ Submission failed. Check internet or backend.");
     console.log(error);
   }
 
