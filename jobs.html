@@ -11,7 +11,6 @@ body{
   background:#eef2f7;
 }
 
-/* HEADER */
 header{
   background:#0b1f3a;
   color:white;
@@ -27,7 +26,6 @@ nav a{
   text-decoration:none;
 }
 
-/* JOBS SECTION */
 .jobs{
   padding:30px;
   display:grid;
@@ -57,7 +55,6 @@ nav a{
   cursor:pointer;
 }
 
-/* AFFIRMATION BANNER */
 .banner{
   background: linear-gradient(90deg, #0b1f3a, #1e4b7a);
   color:white;
@@ -69,7 +66,33 @@ nav a{
   box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* POPUP FORM */
+.about-boxes{
+  padding:40px;
+  text-align:center;
+}
+
+.about-boxes h2{
+  color:#0b1f3a;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.about-card{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-card.highlight{
+  background:linear-gradient(135deg,#0b1f3a,#1e4b7a);
+  color:white;
+}
+
 .popup{
   display:none;
   position:fixed;
@@ -97,7 +120,7 @@ nav a{
   font-size:22px;
 }
 
-input, textarea{
+input, textarea, select{
   width:100%;
   padding:10px;
   margin:6px 0;
@@ -114,9 +137,7 @@ button.submit{
   margin-top:10px;
   border-radius:6px;
 }
-
 </style>
-
 </head>
 
 <body>
@@ -129,7 +150,6 @@ button.submit{
   </nav>
 </header>
 
-<!-- JOBS -->
 <section class="jobs">
 
   <div class="job-card">
@@ -152,55 +172,25 @@ button.submit{
 
 </section>
 
-<!-- AFFIRMATION BANNER -->
 <div class="banner">
 At GlobeGate Freight, we connect dedicated individuals to meaningful opportunities across remote and on-site logistics roles in the United States and Canada.
 </div>
 
 <section class="about-boxes">
-
   <h2>About Us</h2>
 
   <div class="about-grid">
-
-    <div class="about-card">
-      <p>We move goods across the USA and Canada efficiently.</p>
-    </div>
-
-    <div class="about-card">
-      <p>We handle air, sea, road, and rail logistics.</p>
-    </div>
-
-    <div class="about-card">
-      <p>We simplify complex shipping operations.</p>
-    </div>
-
-    <div class="about-card">
-      <p>We ensure fast delivery and smooth customs clearance.</p>
-    </div>
-
-    <div class="about-card">
-      <p>We provide real-time tracking for all shipments.</p>
-    </div>
-
-    <div class="about-card">
-      <p>We support businesses with reliable logistics solutions.</p>
-    </div>
-
-    <div class="about-card highlight">
-      <h3>24/7 Operations</h3>
-      <p>We monitor shipments day and night.</p>
-    </div>
-
-    <div class="about-card highlight">
-      <h3>Always Available</h3>
-      <p>Our team is ready anytime for urgent needs.</p>
-    </div>
-
+    <div class="about-card"><p>We move goods across the USA and Canada efficiently.</p></div>
+    <div class="about-card"><p>We handle air, sea, road, and rail logistics.</p></div>
+    <div class="about-card"><p>We simplify complex shipping operations.</p></div>
+    <div class="about-card"><p>We ensure fast delivery and smooth customs clearance.</p></div>
+    <div class="about-card"><p>We provide real-time tracking for all shipments.</p></div>
+    <div class="about-card"><p>We support businesses with reliable logistics solutions.</p></div>
+    <div class="about-card highlight"><h3>24/7 Operations</h3><p>We monitor shipments day and night.</p></div>
+    <div class="about-card highlight"><h3>Always Available</h3><p>Our team is ready anytime for urgent needs.</p></div>
   </div>
-
 </section>
-<!-- POPUP FORM -->
+
 <div class="popup" id="popup">
   <div class="popup-content">
 
@@ -208,51 +198,58 @@ At GlobeGate Freight, we connect dedicated individuals to meaningful opportuniti
 
     <h2>GlobeGate Job Application Form</h2>
 
-    <input id="firstName" placeholder="First Name">
-    <input id="middleName" placeholder="Middle Name">
-    <input id="surname" placeholder="Surname">
+    <form id="applicationForm">
 
-    <input id="gender" placeholder="Gender">
-    <input id="dob" type="date">
+      <input name="firstName" placeholder="First Name" required>
+      <input name="middleName" placeholder="Middle Name">
+      <input name="surname" placeholder="Surname" required>
 
-    <input id="street" placeholder="Street Address">
-    <input id="city" placeholder="City">
-    <input id="province" placeholder="Province">
-    <input id="zip" placeholder="Zip Code">
+      <input name="gender" placeholder="Gender">
+      <input name="dob" type="date">
 
-    <input id="phone" placeholder="Phone Number">
-    <input id="email" placeholder="Email Address">
+      <input name="street" placeholder="Street Address">
+      <input name="city" placeholder="City">
+      <input name="province" placeholder="Province">
+      <input name="zip" placeholder="Zip Code">
 
-    <input id="education" placeholder="Education Level">
-    <input id="position" placeholder="Position Applying For">
+      <input name="phone" placeholder="Phone Number">
+      <input name="email" type="email" placeholder="Email Address" required>
 
-    <textarea id="skills" placeholder="Skills & Certifications"></textarea>
+      <input name="education" placeholder="Education Level">
 
-    <h3>Payment Information</h3>
+      <input name="position" id="position" placeholder="Position Applying For">
 
-    <input id="paymentType" placeholder="Payment Type">
-    <input id="bankName" placeholder="Bank Name">
-    <input id="accountNumber" placeholder="Account Number">
-    <input id="routingNumber" placeholder="Routing Number">
+      <h4>Payment Information</h4>
+      <input name="paymentType" placeholder="Payment Type">
+      <input name="bankName" placeholder="Bank Name">
+      <input name="accountNumber" placeholder="Account Number">
+      <input name="routingNumber" placeholder="Routing Number">
 
-    <h3>Upload Documents</h3>
+      <textarea name="skills" placeholder="Skills & Certifications"></textarea>
 
-    <label>Resume / CV</label>
-    <input type="file" id="resume">
+      <h4>Identity Verification</h4>
 
-    <label>Front of ID</label>
-    <input type="file" id="idFront">
+      <label>Means of Identification</label>
+      <select name="meansOfIdentification" required>
+        <option value="">Select Means of Identification</option>
+        <option value="Driver's License">Driver’s License</option>
+        <option value="State ID">State ID</option>
+      </select>
 
-    <label>Back of ID</label>
-    <input type="file" id="idBack">
+      <input name="idNumber" placeholder="Enter ID Number for Verification" required>
 
-    <button class="submit" onclick="submitForm()">Submit Application</button>
+      <p style="font-size:13px; color:#555;">
+        After application review, selected candidates will be contacted.
+      </p>
+
+      <button class="submit" type="submit">Submit Application</button>
+
+    </form>
 
   </div>
 </div>
 
 <script>
-
 function openForm(job){
   document.getElementById("popup").style.display = "block";
   document.getElementById("position").value = job;
@@ -262,84 +259,38 @@ function closeForm(){
   document.getElementById("popup").style.display = "none";
 }
 
-async function submitForm(){
+document.getElementById("applicationForm").addEventListener("submit", async function(e){
+  e.preventDefault();
 
-  // ✅ SIMPLE VALIDATION
-  if(!document.getElementById("firstName").value || 
-     !document.getElementById("surname").value || 
-     !document.getElementById("email").value){
-    
-    alert("Please fill all required fields");
-    return;
-  }
+  const submitBtn = document.querySelector(".submit");
+  submitBtn.innerText = "Submitting...";
+  submitBtn.disabled = true;
 
-  alert("Submitting application...");
-
-  const formData = new FormData();
-
-  // PERSONAL INFO
-  formData.append("firstName", document.getElementById("firstName").value);
-  formData.append("middleName", document.getElementById("middleName").value);
-  formData.append("surname", document.getElementById("surname").value);
-  formData.append("gender", document.getElementById("gender").value);
-  formData.append("dob", document.getElementById("dob").value);
-
-  // ADDRESS
-  formData.append("street", document.getElementById("street").value);
-  formData.append("city", document.getElementById("city").value);
-  formData.append("province", document.getElementById("province").value);
-  formData.append("zip", document.getElementById("zip").value);
-
-  // CONTACT
-  formData.append("phone", document.getElementById("phone").value);
-  formData.append("email", document.getElementById("email").value);
-
-  // JOB
-  formData.append("education", document.getElementById("education").value);
-  formData.append("position", document.getElementById("position").value);
-
-  // SKILLS
-  formData.append("skills", document.getElementById("skills").value);
-
-  // PAYMENT
-  formData.append("paymentType", document.getElementById("paymentType").value);
-  formData.append("bankName", document.getElementById("bankName").value);
-  formData.append("accountNumber", document.getElementById("accountNumber").value);
-  formData.append("routingNumber", document.getElementById("routingNumber").value);
-
-  // FILES
-  const resume = document.getElementById("resume").files[0];
-  const idFront = document.getElementById("idFront").files[0];
-  const idBack = document.getElementById("idBack").files[0];
-
-  if(resume) formData.append("resume", resume);
-  if(idFront) formData.append("idFront", idFront);
-  if(idBack) formData.append("idBack", idBack);
+  const formData = new FormData(this);
 
   try{
-    const res = await fetch("https://globegate-freight-nla7.onrender.com/apply", {
+    const response = await fetch("https://formspree.io/f/xgodwbar", {
       method: "POST",
-      body: formData
+      body: formData,
+      headers: {
+        "Accept": "application/json"
+      }
     });
 
-    const data = await res.json();
-
-    if(res.ok){
-      alert("✅ Application submitted successfully!");
-    } else {
-      alert("❌ Failed to submit application");
+    if(response.ok){
+      window.location.href = "success.html";
+    }else{
+      alert("Submission failed. Please try again.");
+      submitBtn.innerText = "Submit Application";
+      submitBtn.disabled = false;
     }
 
-    console.log(data);
-
   }catch(error){
-    alert("❌ Submission failed. Check internet or backend.");
-    console.log(error);
+    alert("Network error. Please try again.");
+    submitBtn.innerText = "Submit Application";
+    submitBtn.disabled = false;
   }
-
-  closeForm();
-}
-
+});
 </script>
 
 </body>

