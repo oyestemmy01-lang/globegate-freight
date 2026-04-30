@@ -5,138 +5,25 @@
 <title>GlobeGate Freight Jobs</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#eef2f7;
-}
-
-header{
-  background:#0b1f3a;
-  color:white;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-nav a{
-  color:white;
-  margin-left:15px;
-  text-decoration:none;
-}
-
-.jobs{
-  padding:30px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.job-card{
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.job-card h3{
-  color:#0b1f3a;
-}
-
-.job-card button{
-  background:#0b1f3a;
-  color:white;
-  border:none;
-  padding:10px;
-  width:100%;
-  margin-top:10px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-.banner{
-  background: linear-gradient(90deg, #0b1f3a, #1e4b7a);
-  color:white;
-  padding:18px;
-  margin:20px;
-  border-radius:10px;
-  text-align:center;
-  font-size:15px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-.about-boxes{
-  padding:40px;
-  text-align:center;
-}
-
-.about-boxes h2{
-  color:#0b1f3a;
-}
-
-.about-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.about-card{
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.about-card.highlight{
-  background:linear-gradient(135deg,#0b1f3a,#1e4b7a);
-  color:white;
-}
-
-.popup{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
-}
-
-.popup-content{
-  background:white;
-  width:90%;
-  max-width:600px;
-  margin:4% auto;
-  padding:20px;
-  border-radius:10px;
-  max-height:85vh;
-  overflow-y:auto;
-}
-
-.close{
-  float:right;
-  cursor:pointer;
-  font-size:22px;
-}
-
-input, textarea, select{
-  width:100%;
-  padding:10px;
-  margin:6px 0;
-  border:1px solid #ccc;
-  border-radius:6px;
-}
-
-button.submit{
-  background:#28a745;
-  color:white;
-  border:none;
-  padding:12px;
-  width:100%;
-  margin-top:10px;
-  border-radius:6px;
-}
+body{margin:0;font-family:Arial;background:#eef2f7;}
+header{background:#0b1f3a;color:white;padding:15px;display:flex;justify-content:space-between;align-items:center;}
+nav a{color:white;margin-left:15px;text-decoration:none;}
+.jobs{padding:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.job-card{background:white;padding:20px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+.job-card h3{color:#0b1f3a;}
+.job-card button{background:#0b1f3a;color:white;border:none;padding:10px;width:100%;margin-top:10px;border-radius:6px;cursor:pointer;}
+.banner{background:linear-gradient(90deg,#0b1f3a,#1e4b7a);color:white;padding:18px;margin:20px;border-radius:10px;text-align:center;font-size:15px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.about-boxes{padding:40px;text-align:center;}
+.about-boxes h2{color:#0b1f3a;}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.about-card{background:white;padding:20px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+.about-card.highlight{background:linear-gradient(135deg,#0b1f3a,#1e4b7a);color:white;}
+.popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);}
+.popup-content{background:white;width:90%;max-width:600px;margin:4% auto;padding:20px;border-radius:10px;max-height:85vh;overflow-y:auto;}
+.close{float:right;cursor:pointer;font-size:22px;}
+input, textarea, select{width:100%;padding:10px;margin:6px 0;border:1px solid #ccc;border-radius:6px;}
+button.submit{background:#28a745;color:white;border:none;padding:12px;width:100%;margin-top:10px;border-radius:6px;}
+.required{color:red;}
 </style>
 </head>
 
@@ -151,7 +38,6 @@ button.submit{
 </header>
 
 <section class="jobs">
-
   <div class="job-card">
     <h3>Truck Driver</h3>
     <p>USA & Canada Logistics</p>
@@ -169,7 +55,6 @@ button.submit{
     <p>Shipment Operations</p>
     <button onclick="openForm('Logistics Coordinator')">Apply</button>
   </div>
-
 </section>
 
 <div class="banner">
@@ -178,7 +63,6 @@ At GlobeGate Freight, we connect dedicated individuals to meaningful opportuniti
 
 <section class="about-boxes">
   <h2>About Us</h2>
-
   <div class="about-grid">
     <div class="about-card"><p>We move goods across the USA and Canada efficiently.</p></div>
     <div class="about-card"><p>We handle air, sea, road, and rail logistics.</p></div>
@@ -197,46 +81,70 @@ At GlobeGate Freight, we connect dedicated individuals to meaningful opportuniti
     <span class="close" onclick="closeForm()">×</span>
 
     <h2>GlobeGate Job Application Form</h2>
+    <p><span class="required">*</span> All fields are required.</p>
 
     <form id="applicationForm">
 
-      <input name="firstName" placeholder="First Name" required>
-      <input name="middleName" placeholder="Middle Name">
-      <input name="surname" placeholder="Surname" required>
+      <input name="firstName" placeholder="First Name *" required>
+      <input name="middleName" placeholder="Middle Name *" required>
+      <input name="surname" placeholder="Surname *" required>
 
-      <input name="gender" placeholder="Gender">
-      <input name="dob" type="date">
+      <select name="gender" id="gender" required onchange="toggleCustomGender()">
+        <option value="">Select Gender *</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Prefer not to say">Prefer not to say</option>
+        <option value="Custom">Custom</option>
+      </select>
 
-      <input name="street" placeholder="Street Address">
-      <input name="city" placeholder="City">
-      <input name="province" placeholder="Province">
-      <input name="zip" placeholder="Zip Code">
+      <input name="customGender" id="customGender" placeholder="Type your gender *" style="display:none;">
 
-      <input name="phone" placeholder="Phone Number">
-      <input name="email" type="email" placeholder="Email Address" required>
+      <input name="dob" type="date" required>
 
-      <input name="education" placeholder="Education Level">
+      <input name="street" placeholder="Street Address *" required>
+      <input name="city" placeholder="City *" required>
+      <input name="province" placeholder="State *" required>
+      <input name="zip" placeholder="Zip Code *" required>
 
-      <input name="position" id="position" placeholder="Position Applying For">
+      <input 
+        name="phone" 
+        type="tel" 
+        placeholder="Phone Number - 10 digits only *" 
+        maxlength="10" 
+        pattern="[0-9]{10}" 
+        inputmode="numeric" 
+        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)" 
+        required
+      >
+
+      <input name="email" type="email" placeholder="Email Address *" required>
+      <input name="education" placeholder="Education Level *" required>
+      <input name="position" id="position" placeholder="Position Applying For *" required>
 
       <h4>Payment Information</h4>
-      <input name="paymentType" placeholder="Payment Type">
-      <input name="bankName" placeholder="Bank Name">
-      <input name="accountNumber" placeholder="Account Number">
-      <input name="routingNumber" placeholder="Routing Number">
 
-      <textarea name="skills" placeholder="Skills & Certifications"></textarea>
+      <select name="paymentType" required>
+        <option value="">Select Payment Type *</option>
+        <option value="Direct Deposit">Direct Deposit</option>
+        <option value="Check">Check</option>
+      </select>
+
+      <input name="bankName" placeholder="Bank Name *" required>
+      <input name="accountNumber" placeholder="Account Number *" required>
+      <input name="routingNumber" placeholder="Routing Number *" required>
+
+      <textarea name="skills" placeholder="Skills & Certifications (Optional)"></textarea>
 
       <h4>Identity Verification</h4>
 
-      <label>Means of Identification</label>
+      <label>Means of Identification <span class="required">*</span></label>
       <select name="meansOfIdentification" required>
-        <option value="">Select Means of Identification</option>
+        <option value="">Select Means of Identification *</option>
         <option value="Driver's License">Driver’s License</option>
         <option value="State ID">State ID</option>
       </select>
 
-      <input name="idNumber" placeholder="Enter ID Number for Verification" required>
+      <input name="idNumber" placeholder="Enter ID Number for Verification *" required>
 
       <p style="font-size:13px; color:#555;">
         After application review, selected candidates will be contacted.
@@ -245,7 +153,6 @@ At GlobeGate Freight, we connect dedicated individuals to meaningful opportuniti
       <button class="submit" type="submit">Submit Application</button>
 
     </form>
-
   </div>
 </div>
 
@@ -257,6 +164,20 @@ function openForm(job){
 
 function closeForm(){
   document.getElementById("popup").style.display = "none";
+}
+
+function toggleCustomGender(){
+  const gender = document.getElementById("gender").value;
+  const customGender = document.getElementById("customGender");
+
+  if(gender === "Custom"){
+    customGender.style.display = "block";
+    customGender.required = true;
+  }else{
+    customGender.style.display = "none";
+    customGender.required = false;
+    customGender.value = "";
+  }
 }
 
 document.getElementById("applicationForm").addEventListener("submit", async function(e){
