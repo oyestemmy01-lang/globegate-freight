@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GlobeGate Freight</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,12 +17,13 @@
   </nav>
 </header>
 
-<!-- HERO SLIDER -->
 <section class="hero slider">
 
-  <div class="slide active"></div>
-  <div class="slide"></div>
-  <div class="slide"></div>
+  <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d');"></div>
+
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1566576912321-d58ddd7a6088');"></div>
+
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7');"></div>
 
   <div class="hero-content">
     <h2>Your Gateway to Logistics Careers in USA & Canada</h2>
@@ -33,7 +35,6 @@
 
 </section>
 
-<!-- CATEGORIES -->
 <section class="categories">
   <h2>Explore Job Categories</h2>
 
@@ -60,13 +61,11 @@ let slides = document.querySelectorAll(".slide");
 let current = 0;
 
 function showSlide() {
-  slides.forEach((slide, index) => {
+  slides.forEach((slide) => {
     slide.classList.remove("active");
-    if (index === current) {
-      slide.classList.add("active");
-    }
   });
 
+  slides[current].classList.add("active");
   current = (current + 1) % slides.length;
 }
 
